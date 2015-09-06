@@ -1,0 +1,39 @@
+<div>
+  <div class="tank-container" id="tank-container">
+    <h1>select a tank</h1>
+
+
+  <table class="tanks-list">
+      <tr>
+        <th>
+          Tank
+        </th>
+        <th>
+          Size
+        </th>
+        <th>
+          Owner
+        </th>
+      </tr>
+    <% @tanks.each do |tank| %>
+      <tr>
+        <td>
+          <a href="/tank/<%= tank.id %>/show">  <%= tank.name %></a>
+        </td>
+        <td>
+           <%= tank.gallons_size %> Gallons
+        </td>
+        <td>
+          <a href="/users/<%= tank.user.id %>/display">
+            <%= tank.user.try(:name) || :email %>
+          </a>
+        </td>
+      </tr>
+     <% end %>
+  </table>
+
+
+<hr>
+
+
+</div>

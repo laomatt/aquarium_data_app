@@ -1,0 +1,38 @@
+
+<h1><%= @tank.name %></h1>
+
+<table class="update-container" id="update-container">
+
+  <tr class="update-item header">
+    <td><div class="up date">Date</div></td>
+    <td><div class="up amonia">Amonia</div></td>
+    <td><div class="up nitrite">nitrite</div></td>
+    <td><div class="up nitrate">nitrate</div></td>
+    <td><div class="up temp">temp</div></td>
+  </tr>
+
+<% @updates.each do |u| %>
+  <tr>
+<div class="update-item">
+  <td><div class="up date"><%= u.created_at.strftime('%b %d, %Y') %></div></td>
+  <td><div class="up amonia"><%= u.amonia %></div></td>
+  <td><div class="up nitrite"><%= u.nitrite %></div></td>
+  <td><div class="up nitrate"><%= u.nitrate %></div></td>
+  <td><div class="up temp"><%= u.temp %></div></td>
+</div>
+</tr>
+<% end %>
+</table>
+
+<div class="add-update">
+<form action="#" idu="<%= params[:tank_id] %>" class="add-update" id="add-update">
+  Amonia: <input class="inamonia" type="number" name="amonia" step="any">
+  Nitrite: <input class="innitrite" type="number" name="nitrite" step="any">
+  Nitrate: <input class="innitrate" type="number" name="nitrate" step="any">
+  Temp: <input class="intemp" type="number" name="temp" step="any">
+
+  <input type="submit">
+
+</form>
+
+</div>

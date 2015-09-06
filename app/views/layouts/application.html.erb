@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AquariumDataApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="navbar">
+    <a href="/tanks">
+      Tanks
+    </a>
+    <div style="float:right">
+      <% if current_user %>
+      <a href="/users/account">
+        Current user : <%= current_user.email %>
+      </a>|
+      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <% else %>
+      No Current User
+      <% end %>
+    </div>
+  </div>
+  <div class="content">
+    <%= yield %>
+  </div>
+</body>
+
+
+</html>
+
+
+<script id="tank-list-template" type="text/x-handlebrs-template">
+<tr>
+<td>
+<a href="/tanks/{{id}}/show"> {{name}} </a>
+</td>
+<td>
+{{gallons_size}}
+</td>
+</tr>
+</script>
+
+<script id="update-list-template" type="text/x-handlebrs-template">
+{{#each update}}
+<tr>
+<div class="update-item">
+<td><div class="up">{{created_at}}</div></td>
+<td><div class="up amonia">{{amonia}}</div></td>
+<td><div class="up nitrite">{{nitrite}}</div></td>
+<td><div class="up nitrate">{{nitrate}}</div></td>
+<td><div class="up temp">{{temp}}</div></td>
+</div>
+</tr>
+{{/each}}
+</script>
+

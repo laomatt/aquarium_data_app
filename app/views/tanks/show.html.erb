@@ -1,0 +1,75 @@
+<h1><%= @tank.name %> -
+<% if @tank.gallons_size <= 1 %>
+  <%= @tank.gallons_size %> gallon</h1>
+<% else %>
+  <%= @tank.gallons_size %> gallons</h1>
+<% end %>
+
+
+
+<h2>updates</h2>
+
+
+<table class="update-container" id="update-container">
+
+  <tr class="update-item header">
+    <th>Date</th>
+    <th>Amonia</th>
+    <th>nitrite</th>
+    <th>nitrate</th>
+    <th>temp</th>
+  </tr>
+
+  <% @tank.updates.each do |u| %>
+    <tr>
+      <td><%= u.created_at.strftime('%b %d, %Y') %></td>
+      <td><%= u.amonia %></td>
+      <td><%= u.nitrite %></td>
+      <td><%= u.nitrate %></td>
+      <td><%= u.temp %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div class="add-update">
+  <h3>Add water quality update for this tank</h3><br>
+  <form action="#" idu="<%= params[:tank_id] %>" class="add-update" id="add-update">
+    <ul>
+      <li>
+        <label for="amonia">
+          Amonia:
+        </label>
+        <input class="update-input" type="number" name="amonia" step="any">
+      </li>
+      <li>
+        <label for="nitrite">
+          Nitrite:
+        </label>
+        <input class="update-input" type="number" name="nitrite" step="any">
+      </li>
+      <li>
+        <label for="nitrate">
+          Nitrate:
+        </label>
+        <input class="update-input" type="number" name="nitrate" step="any">
+      </li>
+      <li>
+        <label for="temp">
+          Temp:
+        </label>
+        <input class="update-input" type="number" name="temp" step="any">
+      </li>
+      <li>
+        <input type="submit">
+      </li>
+
+    </ul>
+  </form>
+
+</div>
+
+<style>
+  li {
+    list-style: none;
+  }
+</style>

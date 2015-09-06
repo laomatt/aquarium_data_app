@@ -1,0 +1,42 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-tank {
+  position: relative;
+  background-color: transparent;
+  width: 100%;
+  padding: 0px;
+  padding-left: 0%;
+}
+
+
+
+.edit-form {
+  position: relative;
+  margin: 0 auto;
+  width: 60%;
+}
+
+.bio-box {
+  position: relative;
+  background-color: transparent;
+  width: 70%;
+  padding: 4px;
+}
+
+.user-info {
+  background-color: #F7F2E0;
+  padding: 0% 3% 3% 3%;
+  position: relative;
+  float: left;
+  width: 30%;
+  margin: 0% 10% 0% 0%;
+}
+
+.tanks-panel {
+  position: relative;
+  background-color: transparent;
+  width: 50%;
+  float: right;
+}

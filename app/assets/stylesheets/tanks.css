@@ -1,0 +1,49 @@
+.tank-container{
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  margin: 0 auto;
+}
+
+.tank-item{
+  position: relative;
+  width: 100%;
+  background-color: red;
+  margin: 2px;
+}
+
+.ti{
+  position: relative;
+  width: 48%;
+  padding: 2px;
+}
+
+.left-tank{
+  float: left;
+  background-color: transparent;
+}
+
+.right-tank{
+  float: right;
+  background-color: transparent;
+}
+
+
+
+.enter-new-tank{
+  position: relative;
+}
+
+.tanks-list {
+  width: 90%;
+}
+
+
+th {
+  background-color: #A9E2F3;
+  padding: 3px;
+}
+
+td {
+  text-align: center;
+}

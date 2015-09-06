@@ -1,0 +1,49 @@
+<div class="user-info">
+  <h1>Current Profile</h1>
+Name: <%= @user.name %><br>
+Email: <%= @user.email %><br>
+Bio:
+ <br>
+ <div class="bio-box">
+ <p><%= @user.bio %></p>
+ </div>
+<a href="/users/account/edit">edit profile</a>
+
+
+</div>
+
+<div class="tanks-panel">
+  <h1>Tanks</h1>
+  <table class="tanks-list" id="tank-container">
+    <tr>
+      <th>Tank</th>
+      <th>Size</th>
+    </tr>
+  <% @user.tanks.each do |tank| %>
+    <tr>
+      <td>
+        <a href="/tanks/<%= tank.id %>">
+          <%= tank.name %>
+        </a>
+      </td>
+      <td>
+        <%= tank.gallons_size %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+<br>
+
+<h3>Enter a new Tank</h3>
+ <div class="new-tank">
+    <form action="/tank/create" method="POST" class="enter-new-tank">
+      <label for="name">Tank name</label>
+      <input type="text" name="name">
+      <label for="gallons_size">Size</label>
+      <input type="text" name="gallons_size">
+      <input type="submit">
+    </form>
+  </div>
+
+</div>
+

@@ -1,0 +1,24 @@
+<h1>Edit Account</h1>
+<form action="/users" class="edit-form">
+  <input type="text" name="name" value="<%= @user.name %>">
+  <input type="text" name="email" value="<%= @user.email %>">
+  <textarea name="bio" cols="30" rows="10"><%= @user.bio %></textarea>
+  <input type="submit">
+</form>
+
+<script>
+  $("body").on('submit', '.edit-form', function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/users/account/update',
+      type: 'PUT',
+      data: $(this).serialize(),
+    })
+    .done(function(data) {
+    })
+
+      window.location.pathname = "/users/account"
+
+
+  });
+</script>

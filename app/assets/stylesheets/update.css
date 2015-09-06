@@ -1,0 +1,92 @@
+.update-container{
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  padding: 6%;
+  overflow: hidden;
+  font-size: 30px;
+}
+
+.update-item{
+  position: relative;
+  background-color: blue;
+  width: 90%;
+  margin: 2px;
+  overflow: hidden;
+}
+
+.up{
+  position: relative;
+  width: 50px;
+  background-color: transparent;
+  display: inline;
+  text-align: right;
+  margin: 10px;
+  padding: 3%;
+  text-align: left;
+}
+
+.add-update{
+  position: relative;
+  padding: 2%;
+  left: 0%;
+  bottom: 35px;
+}
+
+.amonia{
+  position: relative;
+  background-color:#FA5858;
+}
+
+.nitrite{
+  position: relative;
+  background-color: #FA8258;
+}
+
+.nitrate{
+  position: relative;
+  background-color:#FAAC58;
+}
+
+.temp{
+  position: relative;
+  background-color:#F7D358;
+}
+
+
+.header {
+  background-color: transparent;
+  font-size: 40px;
+}
+
+.date{
+  position: relative;
+  left: 0%;
+  width: 100%;
+}
+
+form{
+  font-size: 30px;
+}
+
+.update-input{
+  width: 50%;
+  float: right;
+  font-size: 30px;
+}
+
+.inamonia{
+  background-color: #FA5858;
+}
+
+.innitrite{
+  background-color: #FAAC58;
+}
+
+.innitrate{
+  background-color:#FAAC58;
+}
+
+.intemp{
+  background-color:#F7D358;
+}
