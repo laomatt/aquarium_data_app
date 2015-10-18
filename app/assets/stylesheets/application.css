@@ -13,10 +13,13 @@
  *= require_tree .
  *= require_self
  */
-
+.navbar{
+  background-color: white;
+  padding: 2%;
+}
 
  .head_banner {
-  background-color: blue;
+  background-color: transparent;
   width: 100%;
   height: 500px;
 }
@@ -35,9 +38,23 @@ input {
 
 .reg_bubble {
   display: inline-block;
-  width: 30;
+  text-align: center;
+  width: 40%;
   padding: 5px;
-  background-color: red;
+  background-color: transparent;
+  border: solid black 3px;
+  border-radius: 10px;
+}
+.sign_in_bubble{
+  float: left;
+}
+.sign_up_bubble{
+  float: right;
+}
+
+.field {
+  padding: 4%;
+  font-size: 13px;
 }
 
 .content {
@@ -47,7 +64,7 @@ input {
 footer {
   position:relative;
   width:100%;
-  background-color: red;
+  background-color: transparent;
 }
 
 .content {

@@ -1,3 +1,17 @@
 // Place all the styles related to the manage/accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.filtered_list {
+  width: 100%;
+  background-color: transparent;
+}
+
+.list_of_users {
+  width: 90%;
+  padding: 2%;
+}
+
+.col {
+  text-align: left;
+}

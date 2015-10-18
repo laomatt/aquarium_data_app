@@ -3,14 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .new-tank {
+  float: right;
   position: relative;
-  background-color: transparent;
-  width: 100%;
-  padding: 0px;
+  background-color: red;
+  width: 49%;
+  margin: 2px;
+  padding: 10px;
   padding-left: 0%;
 }
 
+input {
+  margin: 2px;
+}
 
+label {
+}
 
 .edit-form {
   position: relative;

@@ -14,9 +14,17 @@ Rails.application.routes.draw do
   get '/users/account' => 'users#show'
   get '/users/sign_out' => 'users#sign_out'
   get '/users/account/edit' => 'users#edit'
+  get '/manage/accounts/filter' => 'manage/accounts#filtered_results'
   put '/users/account/update' => 'users#update'
   get '/users/:id/display' => 'users#display'
   get '/tanks/:id/show' => 'tanks#show'
+  get '/tanks/list/index' => 'tanks#index'
+
+  get '/tanks/search/filtered_results' => 'tanks#filtered_results'
+
+  get '/manage/accounts/show/:user_id' => 'manage/accounts#show'
+  get '/manage/accounts/index' => 'manage/accounts#index'
+  get '/manage/accounts/edit/:user_id' => 'manage/accounts#edit'
 
   resources :updates
 

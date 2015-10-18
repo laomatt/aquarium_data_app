@@ -5,6 +5,10 @@ class UpdatesController < ApplicationController
     @updates = Tank.find(params[:tank_id]).updates
   end
 
+  def list
+
+  end
+
   def create
     update = Update.create(update_params)
     update.update_attributes(tank_id: params[:tank_id])

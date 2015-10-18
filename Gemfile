@@ -29,6 +29,9 @@ gem 'handlebars_assets'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'devise'
+gem "paperclip", "~> 4.3"
+
+gem 'will_paginate', '~> 3.0.6'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

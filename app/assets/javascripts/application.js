@@ -30,7 +30,6 @@ $(document).ready(function() {
       var template = Handlebars.compile(source);
       var html = template(context);
       $("#update-container").append(html)
-      // debugger
     })
     $(this).trigger('reset')
 

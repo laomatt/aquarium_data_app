@@ -8,17 +8,29 @@
 </head>
 <body>
   <div class="navbar">
-    <a href="/tanks">
-      Tanks
-    </a>
+    <div style="float:left">
+      <a href="/tanks/list/index">
+        Tanks
+      </a>
+      |
+      <% if current_user %>
+        <% if current_user.admin == true %>
+        <div class="admin_options" style="float:right;background-color:yellow">
+          <a href="/manage/accounts/index">
+            Accounts
+          </a>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
     <div style="float:right">
       <% if current_user %>
-      <a href="/users/account">
-        Current user : <%= current_user.email %>
-      </a>|
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+        <a href="/users/account">
+          Current user : <%= current_user.email %>
+        </a>|
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
       <% else %>
-      No Current User
+        No Current User
       <% end %>
     </div>
   </div>
@@ -54,5 +66,53 @@
 </div>
 </tr>
 {{/each}}
+</script>
+
+<script id="tank-index-template" type="text/x-handlebrs-template">
+  {{#each tank}}
+    <tr>
+      <td>
+        <a href="/tanks/{{id}}/show">  {{name}}</a>
+      </td>
+      <td>
+         {{size}} Gallons
+      </td>
+      <td>
+        <a href="/users/{{user.id}}/display">
+          {{user.name}}
+        </a>
+      </td>
+    </tr>
+  {{/each}}
+</script>
+
+<script id="accounts-index-template" type="text/x-handlebrs-template">
+  {{#each account}}
+      <tr>
+        <td class="col">
+          <a href="/manage/accounts/show/{{id}}">
+            {{name}}
+          </a>
+        </td>
+        <td class="col">
+          {{email}}
+        </td>
+        <td class="col">
+          {{sign_in_count}}
+        </td>
+        <td class="col">
+          {{last_sign_in_at}}
+        </td>
+        <td class="col">
+          <a href="#" class="edit-user">
+            Edit
+          </a>
+          |
+          <a href="#" class="delete-user">
+            [X]
+          </a>
+        </td>
+      </tr>
+  {{/each}}
 </script>
 

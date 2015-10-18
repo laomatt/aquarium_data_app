@@ -6,7 +6,7 @@
 <% end %>
 
 
-
+<h2>owner: <%= @tank.user.name %></h2>
 <h2>updates</h2>
 
 
@@ -31,42 +31,43 @@
   <% end %>
 </table>
 
-<div class="add-update">
-  <h3>Add water quality update for this tank</h3><br>
-  <form action="#" idu="<%= params[:tank_id] %>" class="add-update" id="add-update">
-    <ul>
-      <li>
-        <label for="amonia">
-          Amonia:
-        </label>
-        <input class="update-input" type="number" name="amonia" step="any">
-      </li>
-      <li>
-        <label for="nitrite">
-          Nitrite:
-        </label>
-        <input class="update-input" type="number" name="nitrite" step="any">
-      </li>
-      <li>
-        <label for="nitrate">
-          Nitrate:
-        </label>
-        <input class="update-input" type="number" name="nitrate" step="any">
-      </li>
-      <li>
-        <label for="temp">
-          Temp:
-        </label>
-        <input class="update-input" type="number" name="temp" step="any">
-      </li>
-      <li>
-        <input type="submit">
-      </li>
+<% if current_user == @tank.user %>
+  <div class="add-update">
+    <h3>Add water quality update for this tank</h3><br>
+    <form action="#" idu="<%= params[:tank_id] %>" class="add-update" id="add-update">
+      <ul>
+        <li>
+          <label for="amonia">
+            Amonia:
+          </label>
+          <input class="update-input" type="number" name="amonia" step="any">
+        </li>
+        <li>
+          <label for="nitrite">
+            Nitrite:
+          </label>
+          <input class="update-input" type="number" name="nitrite" step="any">
+        </li>
+        <li>
+          <label for="nitrate">
+            Nitrate:
+          </label>
+          <input class="update-input" type="number" name="nitrate" step="any">
+        </li>
+        <li>
+          <label for="temp">
+            Temp:
+          </label>
+          <input class="update-input" type="number" name="temp" step="any">
+        </li>
+        <li>
+          <input type="submit">
+        </li>
 
-    </ul>
-  </form>
-
-</div>
+      </ul>
+    </form>
+  </div>
+<% end %>
 
 <style>
   li {

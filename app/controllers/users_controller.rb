@@ -13,10 +13,10 @@ class UsersController < ApplicationController
     current_user.update_attributes(user_params)
   end
 
-  def sign_out
-    current_user = nil
-    redirect_to '/'
+  def update_picture
+
   end
+
 
   def display
     @displayed_user = User.find(params[:id])

@@ -1,11 +1,16 @@
 <%= stylesheet_link_tag "application"%>
 <% if current_user.nil? %>
   <div class="head_banner">
-    <div class="reg_bubble">
+  </div>
+  <div class="reg_area"></div>
+    <div class="reg_bubble sign_in_bubble">
     <h1>
-      sign in
+      Sign in
     </h1>
-    <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="BHEOBYyR8QIRx0OD4QNPsLJnS8qqsbn6f1MQYG9RtgH4frnbcwNw5aDO5Hi7Qc278grX8gN+fgZJT0+VHApFAw==">
+    <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="✓">
+      <input type="hidden" name="authenticity_token" value="BHEOBYyR8QIRx0OD4QNPsLJnS8qqsbn6f1MQYG9RtgH4frnbcwNw5aDO5Hi7Qc278grX8gN+fgZJT0+VHApFAw==">
+
     <div class="field">
       <label for="user_email">Email</label><br>
       <input autofocus="autofocus" type="email" value="" name="user[email]" id="user_email">
@@ -21,14 +26,15 @@
         <label for="user_remember_me">Remember me</label>
       </div>
 
-    <div class="actions">
+    <div class="field actions">
       <input type="submit" name="commit" value="Log in">
     </div>
   </form>
   </div>
 
 
-  <div class="reg_bubble">
+  <div class="reg_bubble sign_up_bubble">
+    <h1>Sign up</h1>
    <form class="new_user" id="new_user" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="12Lo4mCA8Fz0cgQCnAZxAI8WNXHqBH9En7C0ImgvOGWdzRez/jULC+rjSb/s/SIfOwc1gJqC+84fGwKOal+yHQ==">
 
 
@@ -48,7 +54,7 @@
       <input autocomplete="off" type="password" name="user[password_confirmation]" id="user_password_confirmation">
     </div>
 
-    <div class="actions">
+    <div class="field actions">
       <input type="submit" name="commit" value="Sign up">
     </div>
   </form>
