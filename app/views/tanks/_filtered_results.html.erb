@@ -1,0 +1,43 @@
+<div>
+  <div class="tank-container" id="tank-container">
+    <div class="search-header">
+      <h3>Search Tanks</h3>
+      <form action="/tanks/search/filtered_results" id="tank-search-form" class="tanks-search-form">
+        <input type="text" name="name" class="tank-search" style="display:inline">
+        <input type="submit" style="display:inline">
+      </form>
+    </div>
+     <table class="tanks-list" id="results">
+        <tr>
+          <th>
+            Tank
+          </th>
+          <th>
+            Size
+          </th>
+          <th>
+            Owner
+          </th>
+        </tr>
+          <% @tanks.each do |tank| %>
+          <tr>
+            <td>
+              <a href="/tanks/<%= tank.id %>/show">  <%= tank.name %></a>
+            </td>
+            <td>
+             <%= tank.gallons_size %> Gallons
+           </td>
+           <td>
+            <a href="/users/<%= tank.user.id %>/display">
+              <%= tank.user.try(:name) || :email %>
+            </a>
+          </td>
+        </tr>
+        <% end %>
+    </table>
+    <hr>
+    <div class="pagination-section">
+      <%= will_paginate @tanks %>
+    </div>
+  <hr>
+</div>

@@ -1,6 +1,6 @@
 .tank-container{
   position: relative;
-  width: 100%;
+  width: 70%;
   background-color: transparent;
   margin: 0 auto;
 }
@@ -28,16 +28,17 @@
   background-color: transparent;
 }
 
-
-
 .enter-new-tank{
   position: relative;
 }
 
-.tanks-list {
-  width: 90%;
-}
 
+.tanks-list {
+  background-color: #CED8F6;
+  position: relative;
+  width: 100%;
+  margin-bottom: 50px;
+}
 
 th {
   background-color: #A9E2F3;
@@ -46,4 +47,27 @@ th {
 
 td {
   text-align: center;
+}
+
+.tank-search {
+  width: 100%;
+}
+
+.search-header {
+  position: relative;
+  width: 60%;
+  height: 100px;
+  background-color: transparent;
+  background-color: #CED8F6;
+  text-align: center;
+}
+
+.pagination-section {
+  text-align: center;
+}
+
+.tanks-search-form{
+  width: 70%;
+  margin-bottom: 20px;
+  padding: 3%;
 }

@@ -1,14 +1,21 @@
 <div class="user-info">
   <h1>Current Profile</h1>
+  <br>
+<%= image_tag @user.portrait.url %>
+  <br>
 Name: <%= @user.name %><br>
 Email: <%= @user.email %><br>
 Bio:
  <br>
  <div class="bio-box">
- <p><%= @user.bio %></p>
+  <p><%= @user.bio %></p>
  </div>
-<a href="/users/account/edit">edit profile</a>
+  <a href="/users/account/edit">edit profile</a>
 
+<%= form_for @user, url: "/users/portrait/update_picture", html: { multipart: true } do |form| %>
+  <%= form.file_field :portrait %>
+  <input type="submit">
+<% end %>
 
 </div>
 
@@ -32,18 +39,39 @@ Bio:
     </tr>
   <% end %>
   </table>
-<br>
-
-<h3>Enter a new Tank</h3>
- <div class="new-tank">
-    <form action="/tank/create" method="POST" class="enter-new-tank">
-      <label for="name">Tank name</label>
-      <input type="text" name="name">
-      <label for="gallons_size">Size</label>
-      <input type="text" name="gallons_size">
-      <input type="submit">
-    </form>
+  <br>
+</div>
+<hr>
+  <div class="new-tank">
+    <h3>Enter a new Tank</h3>
+      <form action="#" method="POST" class="enter-new-tank">
+        <label for="name">Tank name</label>
+        <input type="text" name="name">
+        <label for="gallons_size">Size</label>
+        <input type="text" name="gallons_size">
+        <input type="submit">
+      </form>
   </div>
 
 </div>
 
+<script>
+
+  $('body').on('submit', '.enter-new-tank', function(event) {
+  // debugger
+  event.preventDefault();
+    $.ajax({
+      url: '/tank/create',
+      type: 'POST',
+      data: $(this).serialize()
+    })
+    .done(function(data) {
+      var context = data;
+      var source = $("#tank-list-template").html();
+      var template = Handlebars.compile(source);
+      var html = template(context);
+      $("#tank-container").append(html);
+      $('.enter-new-tank').trigger('reset');
+    });
+  })
+</script>

@@ -1,0 +1,73 @@
+  <div class="search_accounts">
+    <form action="/manage/accounts/filter" class="accounts_search_form">
+      <input type="text" name="name">
+      <input type="submit">
+    </form>
+  </div>
+
+
+<div class="filtered_list">
+  <div class="accounts_list">
+
+      <table class="list_of_users">
+        <tr>
+          <th class="col ">name</th>
+          <th class="col">E-mail</th>
+          <th class="col">Sign ins</th>
+          <th class="col">Last Sign in</th>
+          <th class="col">actions</th>
+
+        </tr>
+        <% @users.each do |user|%>
+        <tr>
+          <td class="col">
+            <a href="/manage/accounts/show/<%= user.id %>">
+              <%= user.name %>
+            </a>
+          </td>
+          <td class="col">
+            <%= user.email%>
+          </td>
+          <td class="col">
+            <%= user.sign_in_count %>
+          </td>
+          <td class="col">
+            <%= user.last_sign_in_at %>
+          </td>
+          <td class="col">
+            <a href="/manage/accounts/edit/<%= user.id %>" class="edit-user">
+              Edit
+            </a>
+            |
+            <a href="#" class="delete-user" d="<%= user.id %>">
+              [X]
+            </a>
+          </td>
+          <td>
+            <div class="confirm-delete" style="position: absolute; width: 14%; right: 2%; float: right; display: none; background-color: rgb(246, 206, 216);" id="cd_<%= user.id %>">
+              delete user?
+              <a href="#" class="delete-user" d="<%= user.id %>">yes</a> | <a href="#" class="cancel-delete" d="<%= user.id %>">cancel</a>
+        </td>
+      </div>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="pagination-section">
+      <%= will_paginate @users %>
+    </div>
+</div>
+
+
+<script>
+  $('body').on('click', '.delete-user', function(event) {
+    event.preventDefault();
+    var id = $(this).attr('d');
+    $("#cd_"+id).css('display', 'block');
+  });
+  $('body').on('click', '.cancel-delete', function(event) {
+    event.preventDefault();
+    var id = $(this).attr('d');
+    $("#cd_"+id).css('display', 'none');
+  });
+</script>
